@@ -22,7 +22,7 @@ from tqdm import tqdm
 
 def synset2idx(path_to_yaml="data/index_synset.yaml"):
     with open(path_to_yaml) as f:
-        di2s = yaml.load(f)
+        di2s = yaml.load(f, Loader=yaml.SafeLoader)
     return dict((v, k) for k, v in di2s.items())
 
 

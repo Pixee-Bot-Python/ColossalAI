@@ -8,7 +8,7 @@ if __name__ == "__main__":
         yaml_path = "../../train_colossalai.yaml"
         with open(yaml_path, "r", encoding="utf-8") as f:
             config = f.read()
-        base_config = yaml.load(config, Loader=yaml.FullLoader)
+        base_config = yaml.load(config, Loader=yaml.SafeLoader)
         unet_config = base_config["model"]["params"]["unet_config"]
         diffusion_model = UNetModel(**unet_config).to("cuda:0")
 
